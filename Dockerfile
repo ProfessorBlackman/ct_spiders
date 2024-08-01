@@ -1,12 +1,14 @@
 # Use an official Python runtime as a parent image
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Install Poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN #curl -sSL https://install.python-poetry.org | python3 -
+RUN python -m pip install --upgrade pip
+RUN pip install poetry
 
 # Add Poetry to PATH
 ENV PATH="/root/.local/bin:$PATH"
